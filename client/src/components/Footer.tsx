@@ -63,7 +63,7 @@ export default function Footer() {
               {/* Social Links */}
               <div className="flex gap-3">
                 <a
-                  href="https://github.com/nexacore"
+                  href="https://github.com/org-NexaCore"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-lg bg-accent/10 hover:bg-accent/20 transition-all duration-300 hover:scale-110"
@@ -71,7 +71,7 @@ export default function Footer() {
                   <Github className="w-4 h-4 text-accent" />
                 </a>
                 <a
-                  href="https://linkedin.com/company/nexacore"
+                  href="https://www.linkedin.com/company/115856072"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-lg bg-accent/10 hover:bg-accent/20 transition-all duration-300 hover:scale-110"
@@ -155,13 +155,13 @@ export default function Footer() {
                 <li className="flex items-start gap-3 text-muted-foreground text-sm">
                   <Mail className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
                   <a href="mailto:contact@nexacore.dev" className="hover:text-accent transition-colors">
-                    contact@nexacore.dev
+                    nexacore@gmail.com
                   </a>
                 </li>
                 <li className="flex items-start gap-3 text-muted-foreground text-sm">
                   <Phone className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
                   <a href="tel:+212123456789" className="hover:text-accent transition-colors">
-                    +212 123 456 789
+                    +212 650581162
                   </a>
                 </li>
                 <li className="flex items-start gap-3 text-muted-foreground text-sm">
@@ -179,8 +179,8 @@ export default function Footer() {
           {/* Bottom Bar */}
           <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-muted-foreground text-xs">
-              © {currentYear} NexaCore. All rights reserved. Built with{" "}
-              <Heart className="w-3 h-3 inline text-accent animate-pulse" /> in Morocco
+              © {currentYear} NexaCore. All rights reserved{" "}
+              <Heart className="w-3 h-3 inline text-accent animate-pulse" /> 
             </p>
             <div className="flex gap-6 text-xs">
               <Link href="/privacy">
