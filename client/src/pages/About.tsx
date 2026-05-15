@@ -182,32 +182,6 @@ export default function About() {
             />
           ))}
         </div>
-        {/* Floating Knight - ambient background touch */}
-        <motion.div
-          className="absolute bottom-0 right-0 pointer-events-none z-0"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2 }}
-          style={{
-            width: "clamp(200px, 22vw, 520px)",
-            transformOrigin: "bottom right",
-          }}
-        >
-          <motion.img
-            src={theme === "dark" ? knightDark : knightLight}
-            alt=""
-            className="w-full h-auto object-contain opacity-[0.5] dark:opacity-[0.05]"
-            animate={{
-              y: [0, -18, 0],
-              rotate: [0, 1.5, 0],
-            }}
-            transition={{
-              duration: 7,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        </motion.div>
         <motion.div
           className="container max-w-4xl mx-auto text-center px-4 relative z-10"
           initial={{ opacity: 0, y: 20 }}

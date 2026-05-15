@@ -1,14 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import knightDark from "@/assets/dark-knight.png";
-import knightLight from "@/assets/light-knight.png";
-import {useTheme} from  "@/contexts/ThemeContext"
+import { useTheme } from "@/contexts/ThemeContext";
 import {
   X,
   ArrowRight,
   Sparkles,
-  Play,
+  Clock,
   Calendar,
   Code2,
   Smartphone,
@@ -34,10 +32,9 @@ const projects = [
     icon: Code2,
     description:
       "A full-featured e-commerce platform with real-time inventory management and payment processing. Processed over $1M in transactions.",
-    tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
+    tech: ["React + TS", "Spring Boot", "Spring Security", "PostgreSQL"],
     year: "2024",
     impact: "+150% Revenue",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     image:
       "https://images.unsplash.com/photo-1460925895917-adf4e565db18?w=800&h=600&fit=crop",
   },
@@ -48,10 +45,9 @@ const projects = [
     icon: Smartphone,
     description:
       "Cross-platform fitness tracking app with workout plans and social features. Achieved 100K+ downloads in first month.",
-    tech: ["React Native", "Firebase", "Redux"],
+    tech: ["React Native + TS", "Spring Boot", "Spring Security", "Firebase"],
     year: "2024",
     impact: "100K+ Downloads",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     image:
       "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop",
   },
@@ -62,10 +58,9 @@ const projects = [
     icon: Zap,
     description:
       "Scalable CRM system for managing customer relationships and sales pipelines. Used by 500+ enterprise clients.",
-    tech: ["Java", "Spring Boot", "Oracle", "Microservices"],
+    tech: ["React + TS", "Spring Boot", "Spring Security", "PostgreSQL"],
     year: "2024",
     impact: "500+ Clients",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     image:
       "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
   },
@@ -76,10 +71,9 @@ const projects = [
     icon: Smartphone,
     description:
       "Native iOS app for health monitoring with Apple Watch integration. Featured in App Store.",
-    tech: ["Swift", "HealthKit", "CloudKit"],
+    tech: ["React Native + TS", "Spring Boot", "Spring Security", "PostgreSQL"],
     year: "2024",
     impact: "Featured",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     image:
       "https://images.unsplash.com/photo-1526374965328-7f5ae4e8b69e?w=800&h=600&fit=crop",
   },
@@ -90,10 +84,9 @@ const projects = [
     icon: Code2,
     description:
       "Real-time analytics dashboard with custom visualizations and data export. Processing 10M+ data points daily.",
-    tech: ["Vue.js", "D3.js", "Python", "PostgreSQL"],
+    tech: ["React + TS", "Spring Boot", "Spring Security", "PostgreSQL"],
     year: "2024",
     impact: "10M+ Data Points",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
   },
@@ -104,10 +97,9 @@ const projects = [
     icon: Palette,
     description:
       "Complete design system for enterprise applications. Used by 50+ designers across the organization.",
-    tech: ["Figma", "Storybook", "Tailwind CSS"],
+    tech: ["React + TS", "Storybook", "Tailwind CSS"],
     year: "2024",
     impact: "50+ Designers",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     image:
       "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=800&h=600&fit=crop",
   },
@@ -118,10 +110,9 @@ const projects = [
     icon: Zap,
     description:
       "AI-powered content generation tool with natural language processing. Generated 1M+ articles.",
-    tech: ["Python", "TensorFlow", "FastAPI", "React"],
+    tech: ["React + TS", "Spring Boot", "Spring Security", "PostgreSQL"],
     year: "2024",
     impact: "1M+ Articles",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     image:
       "https://images.unsplash.com/photo-1677442d019cecf8d424d0acda32e5f56?w=800&h=600&fit=crop",
   },
@@ -132,10 +123,9 @@ const projects = [
     icon: Shield,
     description:
       "Comprehensive IT consulting platform for digital transformation. Served 20+ enterprise clients.",
-    tech: ["Next.js", "GraphQL", "PostgreSQL", "AWS"],
+    tech: ["React + TS", "Spring Boot", "Spring Security", "PostgreSQL"],
     year: "2024",
     impact: "20+ Enterprises",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     image:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
   },
@@ -148,9 +138,8 @@ export default function Portfolio() {
 
   const heroRef = useRef<HTMLDivElement>(null);
   const projectsContainerRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);  
+  const lineRef = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
-  
 
   // GSAP Animations
   useEffect(() => {
@@ -244,33 +233,6 @@ export default function Portfolio() {
             <rect width="100%" height="100%" fill="url(#grid)" />
           </svg>
         </div>
-
-        {/* Floating Knight - ambient background touch */}
-        <motion.div
-          className="absolute bottom-0 right-0 pointer-events-none z-0"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2 }}
-          style={{
-            width: "clamp(200px, 22vw, 520px)",
-            transformOrigin: "bottom right",
-          }}
-        >
-          <motion.img
-            src={theme === "dark" ? knightDark : knightLight}
-            alt=""
-            className="w-full h-auto object-contain opacity-[0.5] dark:opacity-[0.05]"
-            animate={{
-              y: [0, -18, 0],
-              rotate: [0, 1.5, 0],
-            }}
-            transition={{
-              duration: 7,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        </motion.div>
         <motion.div
           className="container max-w-4xl mx-auto text-center px-4 relative z-10"
           initial={{ opacity: 0, y: 20 }}
@@ -396,8 +358,9 @@ export default function Portfolio() {
                           ))}
                         </div>
 
-                        <div className="inline-flex items-center gap-2 text-accent text-sm font-medium group-hover:gap-3 transition-all">
-                          Watch Demo <Play className="w-3 h-3" />
+                        <div className="inline-flex items-center gap-2 text-muted-foreground text-sm">
+                          <Clock className="w-3 h-3" />
+                          Demo coming soon
                         </div>
                       </div>
                     </div>
@@ -524,14 +487,13 @@ export default function Portfolio() {
               className="bg-card/95 backdrop-blur-xl border border-accent/20 rounded-2xl max-w-5xl w-full overflow-hidden shadow-2xl"
             >
               <div className="relative bg-black">
-                <div className="aspect-video">
-                  <iframe
-                    src={selectedProject.videoUrl}
-                    title={selectedProject.title}
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+                <div className="aspect-video flex flex-col items-center justify-center gap-3 text-white/40">
+                  <Clock className="w-10 h-10" />
+                  <p className="text-sm font-medium">Demo unavailable</p>
+                  <p className="text-xs text-white/25 max-w-xs text-center">
+                    A live demo for this project isn't ready yet. Check back
+                    soon.
+                  </p>
                 </div>
                 <button
                   onClick={() => setSelectedProject(null)}
